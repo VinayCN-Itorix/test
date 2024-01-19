@@ -1,0 +1,41 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "expression-evaluator-api",
+      "version": "1.0.0",
+      "description": "An API for evaluating mathematical expressions"
+    },
+    "paths": {
+      "/evaluate": {
+        "get": {
+          "summary": "Evaluate a mathematical expression",
+          "description": "This endpoint allows you to evaluate a mathematical expression. Provide the expression as a query parameter named `expression`. Example expressions: '2 + 2', 'sin(45)', '3 * (5 - 2)'.",
+          "parameters": [
+            {
+              "name": "expression",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "string"
+              },
+              "description": "The mathematical expression to evaluate"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful operation",
+              "content": {
+                "application/json": {
+                  "example": {
+                    "result-1": "Result is {{eval(expression)}}",
+                    "Result-2":"testing kebab case"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
